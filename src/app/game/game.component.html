@@ -1,0 +1,57 @@
+<div class="upper-bar">
+    <div class="upper-header">
+        <div class="upper-header-1st-line">
+        COUNT YOUR
+        </div>
+        <div class="upper-header-2nd-line">
+        POINTS    
+        </div>
+        <div class="remark">
+        © SoftClub edition
+        </div>
+    </div>
+    <div class="new-game-div">
+        <button class="new-game-button" (click)="newGame()">New game</button>
+    </div>
+</div>
+<hr>
+<div class="game-div">
+    <div class="game-container">
+        <div class="player-area" *ngFor="let player of players; index as j">
+            {{player.name}}
+            <div class="dart-area" *ngFor="let i of [0, 1, 2]">
+                Dart {{i + 1}}
+                <input class="dart-value" [(ngModel)]="scoreNum[j][i]">   
+                <button class="x1-button" *ngIf="!isX1(i, player)" (click)="pickX1(i, player)">1x</button>
+                <button class="x1-button-picked" *ngIf="isX1(i, player)">1x</button>
+                <button class="x2-button" *ngIf="!isX2(i, player)" (click)="pickX2(i, player)">2x</button>
+                <button class="x2-button-picked" *ngIf="isX2(i, player)">2x</button>
+                <button class="x3-button" *ngIf="!isX3(i, player)" (click)="pickX3(i, player)">3x</button>
+                <button class="x3-button-picked" *ngIf="isX3(i, player)">3x</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="add-button-div">
+<button class="add-button">Add</button>
+</div>
+<hr>
+<div class="table-area">
+    <div class="table-container">
+        <div class="move-container">
+            <div class="move-area" *ngFor="let i of scoreStack">{{moveCount + 1}}</div>
+        </div>
+        <div class="info-container">
+            <div class="players-header">
+                <div class="player" *ngFor="let player of players">
+                    {{player.name}}
+                </div>
+            </div> 
+            <div class="score-container" *ngFor="let i of scoreStack">
+                <div class="score-area" *ngFor="let player of players">
+                    {{player.score}}
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+input {
+    border-style: none;
+    border-radius: 3px;
+    width: 99%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 20px;
+    outline: none;
+    height: 4vh;
+    text-align: center;
+}
+
+
+.input-text {
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.input-text2 {
+    font-size: 20px;
+}
+
+button {
+    background-color: rgb(255, 255, 45);
+    border-style: none;
+    border-radius: 3px;
+    color: rgba(17, 17, 15, 0.61);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 20px;
+    height:10%;
+    
+}
+
+button:hover {
+    background-color: rgb(216, 216, 22);
+    border-style: none;
+    border-radius: 3px;
+    color: rgba(17, 17, 15, 0.61);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 20px;
+    height:10%;
+}
+
+button:active {
+    background-color: rgb(182, 182, 16);
+    border-style: none;
+    border-radius: 3px;
+    color: rgba(17, 17, 15, 0.61);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 20px;
+    height:10%;
+}
+
+.buttonText {
+    margin: 8px;
+}
+
+.upper-header {
+    margin: 5%;
+    margin-bottom: 4%;
+}
+
+.upper-header-1st-line {
+    font-size: 38px;
+    text-align: center;
+    font-weight: 100;
+}
+
+.upper-header-2nd-line {
+    font-size: 42px;
+    text-align:center;
+    font-weight: 700;
+    transform: scale(1.6);
+}
+
+.remark {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.input-field {
+    margin: 4%;
+    width: 60%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskText {
+    font-size: 18px;
+    margin-top: 80px;
+    margin-left: 20px;
+}

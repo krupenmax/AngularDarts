@@ -1,0 +1,24 @@
+<div class="upper-header">
+    <div class="upper-header-1st-line">
+      COUNT YOUR
+    </div>
+    <div class="upper-header-2nd-line">
+      POINTS    
+    </div>
+    <div class="remark">
+      © SoftClub edition
+    </div>
+  </div>
+  <div class="taskText">
+    Add a new player to start the game
+  </div>
+<div class="input-text">Nickname</div>
+<input name="Nickname" [(ngModel)]="nickname">
+<div class="input-text2">e-mail</div>
+<input name="Email" [(ngModel)]="email">
+<button class="addButton">
+    <div class="ButtonText">
+        <div class="buttonText" (click)="addPlayer()">Add</div>
+    </div>
+</button>
+

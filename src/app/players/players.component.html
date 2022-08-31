@@ -1,0 +1,35 @@
+<div class="upper-header">
+    <div class="upper-header-1st-line">
+      COUNT YOUR
+    </div>
+    <div class="upper-header-2nd-line">
+      POINTS    
+    </div>
+    <div class="remark">
+      © SoftClub edition
+    </div>
+</div>
+<div class="select-text">Select players</div>
+<div class="upperBar">
+    <input class="search-input" placeholder="Search"> 
+    <button class="New-player" (click)="goBack()">
+        New Player
+    </button>  
+</div>
+<div class="player-field">
+    <div class="player-container" *ngFor="let player of players; index as i;">
+        <div class="name-field">
+            {{player.name}}   
+        </div>
+        <div class ="email-field">
+            {{player.email}}
+        </div>
+        <div>
+            <button class="delete-button" (click)="deletePlayer(i)">✕</button>
+        </div>
+    </div>
+</div> 
+<app-choose-game>
+    
+</app-choose-game>
+

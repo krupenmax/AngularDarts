@@ -1,0 +1,83 @@
+.choose-text {
+    margin-top: 40px;
+}
+
+.game-variations {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.game-501, .game-501-picked{
+    background-color: white;
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+    border-style: none;
+    font-size: 40px;
+    font-weight: 800;
+    color: rgb(54, 54, 54);
+}
+
+.game-501:hover, .game-501-picked:hover {
+    background-color: rgb(214, 211, 211);
+}
+
+.game-501-picked {
+    border-style: double;
+}
+
+
+.game-301 {
+    background-color: white;
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+    border-style: none;
+    margin-left: 50px;
+    font-size: 40px;
+    font-weight: 800;
+    color: rgb(54, 54, 54);
+}
+
+.game-301:hover {
+    background-color: rgb(214, 211, 211);
+}
+
+.game-301-picked {
+    background-color: white;
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+    border-style: none;
+    margin-left: 50px;
+    font-size: 40px;
+    font-weight: 800;
+    color: rgb(54, 54, 54);
+    border-style: double;
+}
+
+.game-301-picked:hover {
+    background-color: rgb(214, 211, 211);
+}
+
+.start-button {
+    background-color: rgb(79, 202, 79);
+    margin-top: 50px;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 10px;
+    outline: none;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+    width: 100%;
+}
+
+.start-button:hover {
+    background-color: rgb(61, 155, 61);
+}
+
+.start-button:active {
+    background-color: rgb(37, 95, 37);
+}

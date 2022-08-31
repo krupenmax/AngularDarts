@@ -1,0 +1,19 @@
+<div class="choose-text">
+    Choose game
+</div>
+<div class="game-variations">
+    <button class="game-501-picked" *ngIf="is501toggled">
+        501
+    </button>
+    <button class="game-501" (click)="pick501Mode()" *ngIf="!is501toggled">
+        501
+    </button>
+    <button class="game-301-picked" *ngIf="!is501toggled">
+        301
+    </button>
+    <button class="game-301" (click)="pick301Mode()" *ngIf="is501toggled">
+        301
+    </button>
+</div>
+<button class="start-button" (click)="startGame()">Start</button>
+
