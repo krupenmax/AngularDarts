@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../game.service';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-choose-game',
@@ -10,7 +11,7 @@ import { GameService } from '../game.service';
 export class ChooseGameComponent implements OnInit {
   
   public is501toggled: boolean = true;
-  constructor(private router: Router, private gameService: GameService) {
+  constructor(private router: Router, private gameService: GameService, private playerService: PlayerService) {
     this.gameService.is501toggled = true;
    }
   
@@ -26,7 +27,10 @@ export class ChooseGameComponent implements OnInit {
   }
 
   public startGame(): void {
-    this.router.navigateByUrl('game');
+    if(this.gameService.checkMinLimit(this.playerService.getPlayers().length))
+    {
+      this.router.navigateByUrl('game');
+    }
   }
 
   ngOnInit(): void {

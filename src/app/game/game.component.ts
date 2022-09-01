@@ -3,8 +3,10 @@ import { PlayerService } from '../player.service';
 import { players } from '../players';
 import { GameService } from '../game.service';
 import { FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
@@ -14,48 +16,16 @@ export class GameComponent implements OnInit {
   public playerCount: number;
   public index: number = 0;  
   public scoreNum: number[][] = new Array();
-  public profileForm = this.fb.group({
-    inputId: [],
-    scoreNum: [],
-    aliases: this.fb.array([])
-  });
-
-  public trackByIndex(index: number, obj: any): any {
-    return index;
-  }
-
-  public get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
-  }
-
-  public addAlias(i: number) {
-    this.aliases.push(this.fb.control(i));
-  }
-
-  public show(i: number): number {
-    return this.aliases.controls[0].value;
-  }
-
-  
-  
-
-  public scoreHit = new FormControl(0);
 
   public x1Array: boolean[][];
   public x2Array: boolean[][];
   public x3Array: boolean[][];
   
-  public scoreStack: number[][];
 
   public moveCount: number = 0;
-  constructor(private playerService: PlayerService, private gameService: GameService, private fb: FormBuilder) {
+  constructor(private playerService: PlayerService, private gameService: GameService, private fb: FormBuilder, private cdr$: ChangeDetectorRef) {
     this.players = new Array();
     this.getPlayers();
-    for (let i: number = 0; i < this.players.length; i++)
-    {
-        this.addAlias(i);
-    }
-
     for (let i: number = 0; i < this.players.length; i++)
     {
         this.scoreNum[i] = new Array();
@@ -68,6 +38,7 @@ export class GameComponent implements OnInit {
       {
         this.setPlayerScores(i, 501);
       }
+      this.gameService.setScores(501, this.playerCount);
     }
     else
     {
@@ -75,9 +46,9 @@ export class GameComponent implements OnInit {
       {
         this.setPlayerScores(i, 301);
       }
+      this.gameService.setScores(301, this.playerCount);
     }
     this.getPlayers();
-    this.scoreStack = this.getScoreStack();
 
     this.x1Array = new Array(this.playerCount);
     for (let i: number = 0; i < this.playerCount; i++)
@@ -177,7 +148,47 @@ export class GameComponent implements OnInit {
     return this.gameService.getScoreStack();
   }
 
-  public hitScore(index: number, score: number) {
+  public hitScore(): void {
+    let checked: boolean = true;
+    for (let i: number = 0; i < this.playerCount; i++)
+    {
+      for (let j: number = 0; j < 3; j ++)
+      {
+        if (this.scoreNum[i][j] == null)
+        {
+          checked = false;
+          alert("Missing values");
+          break;
+        }
+      }
+    }
+    if (checked)
+    {
+      for (let i: number = 0; i < this.playerCount; i++)
+      {
+        for (let j: number = 0; j < 3; j ++)
+        {
+          let multiplier: number = 0;
+          if (this.x1Array[i][j] == true)
+          {
+            multiplier = 1;
+          }
+          if (this.x2Array[i][j] == true)
+          {
+            multiplier = 2;
+          }
+          if (this.x3Array[i][j] == true)
+          {
+            multiplier = 3;
+          }
+          
+          this.playerService.hitScore(i, this.scoreNum[i][j] * multiplier);
+        }
+      }
+      this.gameService.addScores(this.playerService.getScore());
+      this.moveCount++;
+      this.cdr$.detectChanges();
+    }
   }
 
   ngOnInit(): void {

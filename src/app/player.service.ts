@@ -38,6 +38,15 @@ export class PlayerService {
     }
   }
 
+  public getScore(): number[] {
+    let arr: number[] = new Array();
+    for (let i: number = 0; i < this.playerArray.length; i++)
+    {
+      arr.push(this.playerArray[i].score);
+    }
+    return arr;
+  }
+
   constructor() { 
     let playa: players = new players;
     playa.name="Max";

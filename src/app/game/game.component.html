@@ -33,13 +33,13 @@
     </div>
 </div>
 <div class="add-button-div">
-<button class="add-button">Add</button>
+<button class="add-button" (click)="hitScore()">Add</button>
 </div>
 <hr>
 <div class="table-area">
     <div class="table-container">
         <div class="move-container">
-            <div class="move-area" *ngFor="let i of scoreStack">{{moveCount + 1}}</div>
+            <div class="move-area" *ngFor="let i of getScoreStack(); index as j">{{moveCount - j + 1}}</div>
         </div>
         <div class="info-container">
             <div class="players-header">
@@ -47,9 +47,9 @@
                     {{player.name}}
                 </div>
             </div> 
-            <div class="score-container" *ngFor="let i of scoreStack">
-                <div class="score-area" *ngFor="let player of players">
-                    {{player.score}}
+            <div class="score-container" *ngFor="let i of getScoreStack(); index as j;">
+                <div class="score-area" *ngFor="let player of players; index as k;">
+                    {{getScoreStack()[getScoreStack().length - 1 - j][k]}}
                 </div>
             </div> 
         </div>
