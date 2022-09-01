@@ -29,6 +29,7 @@ export class ChooseGameComponent implements OnInit {
   public startGame(): void {
     if(this.gameService.checkMinLimit(this.playerService.getPlayers().length))
     {
+      this.gameService.startGame();
       this.router.navigateByUrl('game');
     }
   }

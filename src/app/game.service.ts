@@ -8,9 +8,12 @@ export class GameService {
 
   public is501toggled: boolean = false;
   public scoreStack: number[][] = new Array();
+  public playStarted: boolean = false;
+
   constructor(private router: Router) {
     this.scoreStack = new Array();
    }
+
   public is501(): boolean {
     return this.is501toggled;
   }
@@ -37,6 +40,14 @@ export class GameService {
   public newGame(): void {
     this.is501toggled = false;
     this.router.navigateByUrl('dashboard');
+  }
+
+  public startGame(): void {
+    this.playStarted = true;
+  }
+
+  public isPlayStarted(): boolean {
+    return this.playStarted;
   }
 
   public checkMinLimit(playerNum: number): boolean {

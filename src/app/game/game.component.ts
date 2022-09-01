@@ -20,6 +20,7 @@ export class GameComponent implements OnInit {
   public x1Array: boolean[][];
   public x2Array: boolean[][];
   public x3Array: boolean[][];
+
   
 
   public moveCount: number = 0;
